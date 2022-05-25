@@ -1,0 +1,30 @@
+minimum_cumulusci_version: '3.58.0'
+project:
+    name: Repo-with-Description
+    package:
+        name: Repo-with-Description
+        api_version: '54.0'
+    dependencies:
+        - github: 'http://google.com'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/Repo-with-Description/tests
+            options:
+                outputdir: robot/Repo-with-Description/results
+
+    robot_testdoc:
+        options:
+            path: robot/Repo-with-Description/tests
+            output: robot/Repo-with-Description/doc/Repo-with-Description_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
